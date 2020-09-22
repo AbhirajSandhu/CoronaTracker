@@ -1,0 +1,61 @@
+<div class="sandhu" id="home">
+    <div class="magic">
+      <div class="zcontain">
+  
+        <div class="topperr">
+        <h3>"It is not the time for countries to move toward mitigation"</h3>
+            <a href="#AllData" class="topper">All Data</a>
+            <a href="#CountryWiseData" class="topper">Country Wise Data</a>
+            <a href="#Top10" class="topper">TOP-10 Covid Struck Countries</a>
+            <a href="#Testing" class="topper">Test Conduction</a>
+            <a href="#Timeline" class="topper">Global Timeline</a>
+         </div>
+  
+      <script type="text/javascript">
+        $('a[href*=\\#]:not([href=\\#])').on('click',function() {
+        var target.length ? target : $('[name=' + this.hash.substr(1) +']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+          return false;
+        }
+      })
+    </script>
+  
+      </div>
+      <div id="mymy"></div>
+      <img src="/images/doctors.png" id="doctor" class="doc">
+      <img src="/images/thanks.png" id="thankyou" class="toc">
+    </div>
+  
+  </div>
+  
+  <script type="text/javascript">
+  
+    window.addEventListener("scroll", function(){
+        var zcontain = document.querySelector(".zcontain");
+        var docy = document.querySelector("#doctor");
+        var tocy = document.querySelector("#thankyou");
+        var topy = document.querySelector(".topperr");
+        zcontain.classList.toggle("sher", window.scrollY > 0)
+        docy.classList.toggle("docy", window.scrollY > 0)
+        tocy.classList.toggle("tocy", window.scrollY > 0)
+        topy.classList.toggle("topy", window.scrollY > 0)
+      })
+  
+    var doctor = document.getElementById('doctor');
+    var thankyou = document.getElementById('thankyou');
+    var mymy = document.getElementById('mymy');
+  
+      scroll = window.pageYOffset;
+      document.addEventListener('scroll', function(e){
+          var offset = window.pageYOffset;
+      scroll = offset;
+      doctor.style.opacity = scroll + '%';
+      doctor.style.bottom =  scroll/30 + '%'
+      thankyou.style.bottom =  scroll/27 + '%';
+      thankyou.style.opacity = scroll + '%';
+      mymy.style.height = scroll/5 + '%';
+      });
+  </script>

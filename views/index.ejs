@@ -1,0 +1,462 @@
+<%- include ("partials/header") %>
+<%- include ("partials/navbar") %>
+<%- include ("partials/home") %>
+
+<div id="AllData"></div>
+<section style="margin:0% 8% 2% 8%;">
+  <div class="bark container-fluid">
+    <div class="row">
+
+      <div class="col-lg-8 col-md-12 col-sm-12" style="text-align: center;">
+      <br><br>
+              <h3 class="top-heading">Coronavirus cases - <img src="/images/earth.png" style="width: 50px;"></h3>
+              <% var d = new Date(forindia.Date); %>
+               <% var n = d.toDateString(); %>
+            <span style="color:grey;">Last updated: <%=n%></span>
+            <div class="row" style="padding:2%;">
+              
+          <div class="bluec col-lg-4 col-md-4 col-sm-12" id="blue">
+            <div class="card" id="bluex">
+
+                <h5 class="card-title">Confirmed</h5>
+                <p><%=global_top_card_data.cases%><sup>[+<%=global_top_card_data.todayCases%>]</sup></p>
+
+            </div>
+          </div>
+          <div class="safec col-lg-4 col-md-4 col-sm-12" id="safe">
+            <div class="card" id="safex">
+
+                <h5 class="card-title">Recovered</h5>
+                <p><%=global_top_card_data.recovered%></p>
+
+          </div>
+          </div>
+          <div class="dangerc col-lg-4 col-md-4 col-sm-12" id="danger">
+            <div class="card" id="dangerx">
+
+                <h5 class="card-title">Deaths</h5>
+                <p><%=global_top_card_data.deaths%><sup>[+<%=global_top_card_data.todayDeaths%>]</sup></p>
+
+            </div>
+          </div>
+        </div>
+        <br>
+            <h3 class="top-heading" > Coronavirus cases - <a href="/india"><img src="/images/india.png" style="width: 50px;"></a></h3>
+              <span style="color:grey;">Last updated: <%=n%></span>
+
+        <div class="row" style="padding:2%;">
+          <div class="bluec col-lg-4 col-md-4 col-sm-12 blue" id="blue">
+            <div class="card" id="bluex">
+
+                <h5 class="card-title">Confirmed</h5>
+                <p><%=india_top_card_data_new.cases%><sup>[+<%=india_top_card_data_new.todayCases%>]</sup></p>
+
+            </div>
+          </div>
+          <div class="safec col-lg-4 col-md-4 col-sm-12" id="safe">
+            <div class="card" id="safex">
+
+                <h5 class="card-title">Recovered</h5>
+                <p><%=india_top_card_data_new.recovered%></p>
+
+          </div>
+          </div>
+          <div class="dangerc col-lg-4 col-md-4 col-sm-12" id="danger">
+            <div class="card" id="dangerx">
+
+                <h5 class="card-title">Deaths</h5>
+                <p><%=india_top_card_data_new.deaths%><sup>[+<%=india_top_card_data_new.todayDeaths%>]</sup></p>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <script type="text/javascript">
+        $(document).ready(function(){
+         $('.bluec').hover(function(){
+        $('header').toggleClass('changerblue');
+        //.css({_:_;})
+         })
+         })
+         $(document).ready(function(){
+         $('.safec').hover(function(){
+        $('header').toggleClass('changersafe');
+         })
+         })
+         $(document).ready(function(){
+         $('.dangerc').hover(function(){
+        $('header').toggleClass('changerdanger');
+         })
+         })
+      </script>
+
+
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <br>
+        <center>
+          <h3 style="padding:2%; margin-top: 20px;">Effects of Covid-19 - <img src="/images/earth.png" style="width: 50px;"></h3>
+        </center>
+          <div class="cardle card">
+            <div class="cardlex card-body">
+              <canvas id="myChart" width=auto; height=300px;></canvas>
+            </div>
+          </div>
+        </div>
+    </div>
+    <a href="#home" class="home">Home</a>
+  </div>
+</section>
+
+<!-- next section of responsive countries -->
+<section id="parallex" style="margin: 0;">
+  <div class="bgime" id="CountryWiseData">
+  <div class="caption">
+    <span class="bow-bow mamla1">Country Wise Data</span>
+    </div>
+  </div>
+</section>
+
+<section id="tabled" style="margin-top: 100px; margin-bottom: 100px;">
+  <div class="container-fluid" id="CountryWiseData">
+    <div class="row">
+        <div class="col-lg-6">
+          <center>
+          <h3 style="padding:2%">Country-Wise Cases Table</h3>
+          </center>
+        <div class="card" style="width: auto;border-left:5px solid #e74a3b;" id="cards">
+          <div class="card-body">
+
+              <div class="country-table">
+                <table class="table" id="myTable2" style="max-height: 550px; overflow: auto; display: inline-block;">
+                <thead>
+                  <tr>
+                    <th scope="col">Country</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Active_Cases</th>
+                    <th scope="col">Recovered</th>
+                    <th scope="col">Deaths</th>
+                  </tr>
+                </thead>
+                <tbody>
+              <%  india_top_card_data.forEach(function(country){ %>
+                  <tr>
+                    <td><%=country.Country%></td>
+                    <td onclick="sortTable(1)" name="Total"><%=country.TotalConfirmed%></td>
+                    <td><%=country.TotalConfirmed-country.TotalRecovered%></td>
+                    <td><%=country.TotalRecovered%></td>
+                    <td><%=country.TotalDeaths%></td>
+                  </tr>
+              <%  })%>
+                </tbody>
+                </table>
+              </div>
+
+          </div>
+        </div>
+      </div>
+        <div class="col-lg-6">
+            <center>
+            <h3 style="padding:2%">Pie Chat For Most Affected Countries</h3>
+            </center>
+          <div class="card" style="width:auto;border-left:5px solid #1cc88a;" id="cards">
+            <div class="card-body">
+              <canvas id="myChart2" width=auto; height=305px;></canvas>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <a href="#home" class="home">Home</a>
+    </div>
+</section>
+
+<section id="parallex" style="margin: 0;">
+  <div id="Top10" class="bgime" style="background-image: url(https://images.unsplash.com/photo-1592438180918-aeae57a279d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);">
+  <div class="caption">
+    <span class="bow-bow mamla">Bar Graph for Top-10 Covid Struck Countries</span>
+    </div>
+  </div>`
+</section>
+  <div class="container" style="margin-top: 100px; margin-bottom: 100px;">
+    <section id="bargraph">
+    <div class="container">
+      <div class="card shadow" style="border-left:5px solid #e74a3b;" id="cards" >
+              <canvas id="myChart3" height="500" width="500"></canvas>
+        </div>
+      </div>
+    </div>
+    </section>
+  </div>
+
+
+  <section id="parallex" style="margin: 0;">
+    <div id="Top10" class="bgime gadbad" style="background-image: url(https://www.kxan.com/wp-content/uploads/sites/40/2020/07/AP20143824047279.jpg?w=2560&h=1440&crop=1);">
+    <div class="caption" id="Testing">
+      <span class="bow-bow">Tests conducted per million population - Country Wise</span>
+      </div>
+    </div>
+  </section>
+
+<div class="container">
+      <section id="perMillionCases">
+        <h2 style="text-align:center;margin-top:5%;margin-bottom:2%;"></h2>
+          <div class="card shadow" style="border-left:5px solid rgba(255, 206, 86, 0.8);" id="cards">
+            <canvas id="myChart4"  height="500" width="500"></canvas>
+          </div>
+      </section>
+      <div><a href="#home" class="home">Home</a></div>
+</div>
+
+<!-- timeline cases -->
+<section id="parallex" style="margin: 0;">
+  <div id="Top10" class="bgime" style="background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/045E/production/_110681110_gettyimages-1202063159.jpg);">
+  <div class="caption" id="Testing">
+    <span class="bow-bow">Global Timeline Of COVID-19</span>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+      <h2 style="text-align:center;margin-top:5%;margin-bottom:2%;"></h2>
+  <div class="container" id="Timeline">
+    <div class="card shadow" style="border-left:5px solid red;" id="cards">
+        <canvas id="myChart5" height="500" width="500"></canvas>
+    </div>
+    <a href="#home" class="home">Home</a>
+  </div>
+</section>
+
+<div class="attribution">
+  <p style="padding-top:10px;">Made with <span>❤</span> by <strong>SteveRogers</strong> and <strong>Ritik</strong> polished and styled by <strong>SandhuZ</strong></p>
+</div>
+
+
+
+
+
+
+
+
+
+  <script >
+
+  var ctx = document.getElementById("myChart3").getContext("2d");
+var data = {
+  labels: [<%for(var i=0;i<10;i++){%>
+      "<%=bar_name[i].Country%>",
+    <%}%>
+  ],
+    datasets: [
+        {
+            label: "Confirmed",
+            backgroundColor: 'rgba(255, 206, 86, 0.8)',
+            data: [<%=bar_confirm%>]
+        },
+        {
+            label: "Recovered",
+            backgroundColor: "#1cc88a",
+            data: [<%=bar_recover%>]
+        },
+        {
+            label: "Deaths",
+            backgroundColor: 'rgba(255, 99, 132, 0.8)',
+            data: [<%=bar_death%>]
+        }
+    ]
+};
+
+var myBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+
+
+        responsive: true, // Instruct chart js to respond nicely.
+        maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height
+
+        barValueSpacing: 20,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                }
+            }]
+        }
+    }
+});
+
+
+  </script>
+
+<script >
+var plot = [];
+var ctx = document.getElementById('myChart2');
+<%for(var i=0;i<5;i++){%>
+   plot.push(<%=piedata[i].TotalConfirmed%>)
+<%}%>
+console.log(plot);
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: [<%for(var i=0;i<5;i++){%>
+        "<%=piedata[i].Country%>",
+      <%  }%>
+      ],
+        datasets: [{
+            data: plot,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.8)',
+                'rgba(54, 162, 235, 0.8)',
+                'rgba(255, 206, 86, 0.8)',
+                'rgba(75, 192, 192, 0.8)',
+                'rgba(153, 102, 255, 0.8)',
+            ],
+            borderColor: [
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+</script>
+
+
+<script>
+
+  var ctx = document.getElementById("myChart").getContext('2d');
+  var myChart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: ["Confirmed", "Recovered", "Deaths"],
+    datasets: [{
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.8)',
+        'rgba(54, 162, 235, 0.8)',
+        'rgba(255, 206, 86, 0.8)'
+      ],
+      data: [<%=global_top_card_data.cases%>,<%=global_top_card_data.recovered%>,<%=global_top_card_data.deaths%>]
+    }]
+  }
+});
+
+
+</script>
+
+<script >
+
+new Chart(document.getElementById("myChart4"), {
+    type: 'bar',
+    data: {
+      labels: [<%for(var i=1;i<11;i++){%>
+        "<%=perMillionCasesCountry[i]%>",
+        <%}%>
+      ],
+      datasets: [{
+          label: "Cases Per Million",
+          type: "line",
+          borderColor: "rgba(153, 102, 255, 0.8)",
+          data: [
+            <%for(var i=1;i<11;i++){%>
+              <%=perMillionCases[i].casesPerOneMillion%>,
+              <%}%>
+          ],
+         fill: false
+        }, {
+          label: "Tests Per Million",
+          type: "bar",
+          backgroundColor: "rgba(0,0,0,0.7)",
+          data: [<%for(var i=1;i<11;i++){%>
+            <%=perMillionCases[i].testsPerOneMillion%>,
+            <%}%>],
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      title: {
+        display: true,
+        text: 'Test Conducted per Million VS Cases Per Million'
+      },
+      legend: { display: false },
+      layout: {
+        padding: {
+          left: 10,
+          right: 10
+        }
+      }
+    }
+});
+
+ </script>
+ <!-- timeline chart -->
+<script>
+var ctx = document.getElementById("myChart5").getContext('2d');
+
+var myChart = new Chart(ctx, {
+type: 'line',
+data: {
+    labels: [<%for(var key in timeline.cases){%>
+      "<%=key%>",
+      <%}%>],
+    datasets: [{
+        label: 'Confirmed', // Name the series
+        data: [<%for (var key in timeline.cases) {%>
+          <%=timeline.cases[key]%>,
+        <%}%>
+        ], // Specify the data values array
+        fill: false,
+        borderColor: '#2196f3', // Add custom color border (Line)
+        backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
+        borderWidth: 1 // Specify bar border width
+    },
+    {
+      label: 'Recovered', // Name the series
+      data: [<%for (var key in timeline.recovered) {%>
+        <%=timeline.recovered[key]%>,
+      <%}%>], // Specify the data values arraya
+      fill: false,
+      borderColor: '#4CAF50', // Add custom color border (Line)
+      backgroundColor: '#4CAF50', // Add custom color background (Points and Fill)
+      borderWidth: 1 // Specify bar border width
+    },
+    {
+      label: 'Deaths', // Name the series
+      data: [<%for (var key in timeline.deaths) {%>
+        <%=timeline.deaths[key]%>,
+      <%}%>], // Specify the data values array
+      fill: false,
+      borderColor: 'red', // Add custom color border (Line)
+      backgroundColor: 'red', // Add custom color background (Points and Fill)
+      borderWidth: 1 // Specify bar border width
+    }]
+},
+options: {
+
+  responsive: true, // Instruct chart js to respond nicely.
+  maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height
+}
+});
+</script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+<%- include ("partials/footer") %>

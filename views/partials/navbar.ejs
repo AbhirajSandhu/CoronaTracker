@@ -1,0 +1,27 @@
+<header>
+    <a class="logo">C<img src="/images/virus.png" style="width: 33px; transform: translateY(-5px);">VID-19 Tracker </a>
+      <ul>
+        <li><a href="/"><i class="fas fa-chart-line"></i>Dashboard</a></li>
+        <li><a href="/india"><i class="fas fa-home"></i>India</a></li>
+        <li><a href="/about"><i class="fas fa-user-friends"></i>About Us</a></li>
+      </ul>
+      <div class="menu-toggle">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </div>
+  </header>
+
+  <script type="text/javascript">
+
+  // small display nav collapse expand
+    $(document).ready(function(){
+      $('.menu-toggle').click(function(){
+        $('ul').toggleClass('active');
+      })
+    })
+    //scroll fix nav
+    window.addEventListener("scroll", function(){
+      var header = document.querySelector("header");
+      header.classList.toggle("sticky", window.scrollY > 0)
+    })
+  </script>
+

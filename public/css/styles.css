@@ -1,0 +1,466 @@
+body{
+  margin: 0;
+  padding: 0;
+    font-family:"Ubuntu";
+    background-color:#f8f9fa;
+    background-image: url('/images/gplay.png');
+    z-index: -20;
+}
+
+
+.top-heading
+{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#bluex
+{
+  transition: 0.2s;
+  max-width: auto;
+  border-left: 5px solid #008cff;
+  padding-top:4%;
+  overflow: hidden;
+}
+#bluex::before
+{
+  top: 0;
+  content: '';
+  background-image: -webkit-linear-gradient(left,
+    rgba(0, 162, 255, 0) 0%,
+    rgba(0, 38, 255, 0.4  ) 50%,
+    transparent 50%
+  );
+  transform: skew(-45deg);
+  height: 120px;
+  width: 800px;
+  position: absolute;
+  transition: 0.5s;
+  left: -120px;
+  animation: animateblue 3s linear infinite;
+}
+@keyframes animateblue
+{
+  0%
+  {
+    left: -120px;
+  }
+  100%
+  {
+    left: 10000px;
+  }
+  
+}
+#blue:hover #bluex
+{
+  transition: 0s;
+  background: url('/images/patient.png');
+  background-position: 130%;
+  background-size: contain;
+  background-repeat: repeat-y;
+  box-shadow: 0 0 5px #4e73df,
+            0 0 25px #4e73df,
+            0 0 50px #4e73df,
+            0 0 200px #4e73df;
+  border: 4px solid rgba(158, 177, 231, 0.3);
+  transform: translateY(-20px);
+}
+#blue:hover #bluex h5
+{
+  transform: translateY(-50px);
+}
+#blue:hover #bluex p
+{
+  transform: translateY(-17px);
+  font-size: 20px;
+}
+#safex
+{
+  transition: 0.2s;
+  max-width: auto;
+  border-left: 5px solid #1cc88a;
+  padding-top:4%;
+  overflow: hidden;
+}
+#safex::before
+{
+  top: 0;
+  content: '';
+  background-image: -webkit-linear-gradient(left,
+    rgba(0,255,0,0) 0%,
+    rgb(28, 231, 106) 50%,
+    transparent 50%
+  );
+  transform: skew(-45deg);
+  height: 120px;
+  width: 800px;
+  position: absolute;
+  transition: 0.5s;
+  left: -120px;
+  animation: animatesafe 3s linear infinite;
+}
+@keyframes animatesafe
+{
+  0%
+  {
+    left: -620px;
+  }
+  100%
+  {
+    left: 9500px;
+  }
+  
+}
+
+#safe:hover #safex
+{
+  transition: 0s;
+  background: url('/images/man.png');
+  background-position: 130%;
+  background-size: contain;
+  background-repeat: repeat-y;
+  box-shadow: 0 0 5px #1cc88a,
+            0 0 25px #1cc88a,
+            0 0 50px #1cc88a,
+            0 0 200px #1cc88a;
+  border: 4px solid rgba(150, 231, 168, 0.3);
+  transform: translateY(-20px);
+}
+#safe:hover #safex h5
+{
+  transform: translateY(-50px);
+}
+#safe:hover #safex p
+{
+  transform: translateY(-17px);
+  font-size: 20px;
+}
+
+#dangerx
+{
+  transition: 0.2s;
+  max-width: auto;
+  border-left: 5px solid #e74a3b;
+  padding-top:4%;
+  overflow: hidden;
+}
+#dangerx::before
+{
+  top: 0;
+  content: '';
+  background-image: -webkit-linear-gradient(left,
+    rgba(255,0,0,0) 0%,
+    rgb(216, 69, 69) 50%,
+    transparent 50%
+  );
+  transform: skew(-45deg);
+  height: 120px;
+  width: 800px;
+  position: absolute;
+  transition: 0.5s;
+  left: -120px;
+  animation: animatedanger 3s linear infinite;
+}
+@keyframes animatedanger
+{
+  0%
+  {
+    left: -1120px;
+  }
+  100%
+  {
+    left: 9000px;
+  }
+  
+}
+
+#danger:hover #dangerx
+{
+  transition: 0s;
+  background: url('/images/dead.png');
+  background-position: 130%;
+  background-size: contain;
+  background-repeat: repeat-y;
+  box-shadow: 0 0 5px #e74a3b,
+            0 0 25px #e74a3b,
+            0 0 50px #e74a3b,
+            0 0 200px #e74a3b;
+  border: 4px solid rgb(207, 134, 134, 0.3);
+  transform: translateY(-20px);
+}
+#danger:hover #dangerx h5
+{
+  transform: translateY(-50px);
+}
+#danger:hover #dangerx p
+{
+  transform: translateY(-17px);
+  font-size: 20px;
+}
+
+header.changerblue
+{
+  background: linear-gradient(180deg,#4e73df,transparent,transparent) !important;
+}
+header.changersafe
+{
+  background: linear-gradient(180deg,#1cc88a,transparent,transparent) !important;
+}
+header.changerdanger
+{
+  background: linear-gradient(180deg,#e74a3b,transparent,transparent) !important;
+}
+header.changerblue .logo
+{
+  color: transparent;
+}
+header.changersafe .logo
+{
+  color: transparent;
+}
+header.changerdanger .logo
+{
+  color: transparent;
+}
+
+/* next section */
+.bgime
+{
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://cdn.ethicaljournalismnetwork.org/wp-content/uploads/2020/03/fusion-medical-animation-rnr8D3FNUNY-unsplash.jpg");
+  min-height: 300px;
+}
+.bark
+{
+  margin-bottom: 9em;
+}
+.caption {
+  position: absolute;
+  left: 0;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+.bow-bow
+{
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  padding: 17px;
+  font-size: 2.5em;
+  letter-spacing: 2px;
+  border-radius: 40px;
+  text-align: center;
+  transition: 0.5s;
+  -webkit-box-reflect: below 1px linear-gradient(
+    transparent,#0005);
+  color: #582c66; 
+  background: linear-gradient(90deg,#2c7c49,#fff,#2c7c49);
+}
+@media (max-width:500px)
+{
+  .bow-bow
+  {
+    background: transparent;
+    font-size: 25px;
+    font-weight: bold;
+    color: thistle;
+  }
+  .gadbad
+  {
+    min-height: 400px;
+  }
+  .mamla
+  {
+    color: rgb(114, 16, 114);
+  }
+  .mamla1
+  {
+    color: #582c66; 
+    background: linear-gradient(90deg,#2c7c49,#fff,#2c7c49);
+  }
+  .attribution
+  {
+    font-size: 15px;
+    padding-bottom: 20px;
+  }
+}
+.cardle
+{
+  max-width: auto;
+  border-left:5px solid #e0e06c;  
+  margin-top: 30px; 
+}
+.cardle:hover .cardlex
+{
+  box-shadow: 0 0 5px #e0e06c,
+            0 0 25px #e0e06c,
+            0 0 50px #e0e06c,
+            0 0 200px #e0e06c;
+  border: 4px solid rgba(144, 155, 50, 0.3);
+  transform: translateY(-7px);
+}
+
+
+
+h3{
+    font-family:"Ubuntu";
+}
+h5{
+    font-family:"Ubuntu";
+}
+h2{
+    font-family:"Ubuntu";
+}
+#navbar{
+  background-color:#f8f9fa;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+  text-align: center;
+}
+#top{
+  font-family: "Ubuntu";
+}
+#top .card{
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+  text-align: center;
+  border-radius: 6px;
+}
+#top sup{
+  color: red;
+  font-weight: 500;
+  margin:0 5px;
+}
+#tabled{
+  margin:2% 8% 2% 8%;
+}
+#cards{
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+  text-align: center;
+  border-radius: 6px;
+}
+
+#perMillionCases #timeline{
+  margin: 8%;
+}
+
+
+#perMillionCases #timeline .card{
+  border-left: 5px solid rgba(153, 102, 255, 0.8);
+    border-radius: 6px;
+    box-shadow: 0 8px 6px -6px #999;
+    text-align: center;
+
+}
+
+#timeline{
+  height: 100%;
+  margin-bottom: 20px;
+}
+.attribution{
+  background-color: #343a40;
+  height: 50px;
+  text-align: center;
+  color: white;
+}
+
+
+@media (max-width:700px){
+  .bow-bow
+  {
+    font-size: 2em;
+  }
+    #top .top-heading{
+      margin-top: 2%;
+    }
+    #top{
+      text-align: center;
+    }
+    #top h3{
+      margin-top:5%;
+    }
+  #top .card{
+    text-align: center;
+    margin:3% auto;
+  }
+  #bargraph{
+    margin-top:10%;
+  }
+#timeline
+{
+  margin-top:10%;
+}
+#perMillionCases{
+
+  margin-top:10%;
+}
+.top-title{
+  font-size: 1.5rem;
+}
+
+#bargraph canvas{
+  height: 500;
+  width: 500;
+}
+
+}
+
+
+
+/***************table search************/
+
+.attribution strong
+{
+  transition: 0.5s;
+  color: #ffff60;
+}
+.attribution span
+{
+  color: rgb(197, 3, 3);
+}
+.attribution:hover strong
+{
+  animation: animatestrong 1s linear infinite;
+}
+@keyframes animatestrong
+{
+  0%
+  {
+    color: #e2e21d;
+  }
+  50%
+  {
+    color: rgb(184, 253, 253);
+  }
+  100%
+  {
+    color: #e2e21d;
+  }
+}
+.attribution:hover span
+{
+  animation: animatespan 1s linear infinite;
+}
+@keyframes animatespan
+{
+  0%
+  {
+    font-size: 1em;
+  }
+  50%
+  {
+    font-size: 1.6em;
+  }
+  100%
+  {
+    font-size: 1em;
+  }
+}

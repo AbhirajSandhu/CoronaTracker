@@ -1,0 +1,133 @@
+
+.magic
+{
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("/images/masks.jpg");
+  min-height: 800px;
+  overflow: hidden;
+  z-index: 100;
+}
+.zcontain
+{
+  transition: 1s;
+  position: absolute;
+  height: 550px;
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 15px;
+  background: rgba(17, 62, 70, 0.6);
+  z-index: -10;
+  box-sizing: border-box;
+	box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+.zcontain.sher
+{
+  transition: 1.5s;
+  background:rgb(52, 133, 136);
+}
+.topper:hover
+{
+  background: white;
+}
+
+#mymy
+{
+  position: absolute;
+  height: 0;
+  bottom: 0;
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 15px;
+  background: rgb(171, 162, 209);
+  z-index: -10;
+}
+.zcontain h3
+{
+  margin-top: 120px;
+  text-align: center;
+  color: #fff;
+}
+@media (max-width:500px)
+{
+  .magic
+  {
+    min-height: 550px;
+  }
+  .zcontain
+  {
+    height: 350px;
+  }
+}
+#doctor
+{
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 0;
+  left: -900px;
+}
+#thankyou
+{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 0;
+  right: -900px;
+}
+#thankyou.tocy
+{
+    right: 0;
+}
+#doctor.docy
+{
+    left: 0;
+}
+
+.topper
+{
+    text-decoration: none;
+    display: list-item;
+    text-align: center;
+    list-style: none;
+    padding: 10px;
+    font-size: 1.5em;
+    color: rgb(53, 186, 190);
+    font-weight: bold;
+}
+.topper:hover
+{
+    text-decoration: none;
+    color: #ffffb3;;
+    background: linear-gradient(90deg,#2c7c49,#1c3525,#2c7c49);
+}
+.topperr.topy
+{
+    display: none;
+}
+.topperr h3
+{
+    color: rgb(171, 162, 209);;
+    padding-bottom: 20px;
+}
+@media (max-width:500px)
+{
+    .topper
+    {
+        padding: 3px;
+        font-size: 1em;
+    }
+    .topperr h3
+    {
+        padding-bottom: 10px;
+        font-size: 1em;
+    }
+}
